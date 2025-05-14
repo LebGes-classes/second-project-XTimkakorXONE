@@ -1,0 +1,6 @@
+com\my_app\service\ProductServiceTest.class
+com\my_app\service\WarehouseServiceTest.class
+com\my_app\service\OrderServiceTest.class
+com\my_app\service\CustomerServiceTest.class
+com\my_app\service\SalesPointServiceTest.class
+com\my_app\service\EmployeeServiceTest.class

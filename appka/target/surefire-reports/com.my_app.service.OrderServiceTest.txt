@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: com.my_app.service.OrderServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in com.my_app.service.OrderServiceTest
+testDeleteOrder  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IllegalStateException: Заказ не может быть пустым
+	at com.my_app.service.OrderServiceTest.testDeleteOrder(OrderServiceTest.java:112)
+
+testUpdateOrder  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.IllegalStateException: Заказ не может быть пустым
+	at com.my_app.service.OrderServiceTest.testUpdateOrder(OrderServiceTest.java:91)
+
+testCreateOrder  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Недостаточно средств. Текущий баланс: 1000, требуемая сумма: 1000
+	at com.my_app.service.OrderServiceTest.testCreateOrder(OrderServiceTest.java:53)
+
+testCalculateOrderTotalPrice  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.RuntimeException: 
+Ошибка при создании транзакции: Ошибка при чтении из файла: Unexpected end-of-input within/between Object entries
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 96] (through reference chain: java.util.ArrayList[0])
+	at com.my_app.service.OrderServiceTest.testCalculateOrderTotalPrice(OrderServiceTest.java:166)
+
+testGetOrderById  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.IllegalStateException: Заказ не может быть пустым
+	at com.my_app.service.OrderServiceTest.testGetOrderById(OrderServiceTest.java:71)
+
+testChangeOrderStatus  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IllegalStateException: Заказ не может быть пустым
+	at com.my_app.service.OrderServiceTest.testChangeOrderStatus(OrderServiceTest.java:132)
+
