@@ -96,12 +96,12 @@ public class OrderServiceR implements OrderService {
                 productService.updateProductQuantity(originalProduct.getId(), originalProduct.getQuantity());
             }
             
-            customerService.withdrawBalance(customerId, sumOrder);
             customerService.addTransaction(
                 customerId, 
                 -sumOrder, 
                 String.format("Оплата заказа %d", order.getId())
             );
+            customer.setBalance(customer.getBalance() - sumOrder);
             
             customer.addOrder(order);
             customerService.updateCustomer(customerId, customer);
@@ -193,6 +193,7 @@ public class OrderServiceR implements OrderService {
             product.decreaseQuantity(quantity);
             productService.updateProductQuantity(productId, product.getQuantity());
 
+            product.setQuantity(quantity);
             order.getOrder().add(product);
             storage.updateOrder(order);
         } catch (IOException e) {

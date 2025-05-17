@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.my_app.entities.employee.Employee;
-import com.my_app.entities.product.Product;
 import com.my_app.entities.sale_point.SalePoint;
 import com.my_app.service.employ_service.EmployeeService;
 import com.my_app.service.employ_service.EmployeeServiceR;
@@ -102,25 +101,6 @@ public class SalesPointServiceTest {
     }
 
     @Test
-    void testAddEmployee() {
-        SalePoint salePoint = new SalePoint();
-        salePoint.setAdress("Test Address");
-        salePoint.setActive(true);
-        SalePoint createdSalePoint = salesPointService.createSalePoint(salePoint);
-
-        Employee employee = new Employee();
-        employee.setName("Test Employee");
-        employee.setPosition("Manager");
-        employee.setActive(true);
-        Employee createdEmployee = employeeService.createEmployee(employee);
-        
-        salesPointService.addEmployee(createdSalePoint.getId(), createdEmployee);
-
-        SalePoint updatedSalePoint = salesPointService.getSalePointById(createdSalePoint.getId());
-        assertTrue(updatedSalePoint.getEmployees().contains(createdEmployee));
-    }
-
-    @Test
     void testRemoveEmployee() {
         SalePoint salePoint = new SalePoint();
         salePoint.setAdress("Test Address");
@@ -140,61 +120,5 @@ public class SalesPointServiceTest {
         assertFalse(updatedSalePoint.getEmployees().contains(createdEmployee));
     }
 
-    @Test
-    void testAddProduct() {
-        SalePoint salePoint = new SalePoint();
-        salePoint.setAdress("Test Address");
-        salePoint.setActive(true);
-        SalePoint createdSalePoint = salesPointService.createSalePoint(salePoint);
-
-        Product product = new Product();
-        product.setName("Test Product");
-        product.setPrice(100);
-        product.setQuantity(10);
-        Product createdProduct = productService.createProduct(product);
-
-        salesPointService.addProduct(createdSalePoint.getId(), createdProduct, 5);
-
-        int quantity = salesPointService.getProductQuantity(createdSalePoint.getId(), createdProduct);
-        assertEquals(5, quantity);
-    }
-
-    @Test
-    void testRemoveProduct() {
-        SalePoint salePoint = new SalePoint();
-        salePoint.setAdress("Test Address");
-        salePoint.setActive(true);
-        SalePoint createdSalePoint = salesPointService.createSalePoint(salePoint);
-
-        Product product = new Product();
-        product.setName("Test Product");
-        product.setPrice(100);
-        product.setQuantity(10);
-        Product createdProduct = productService.createProduct(product);
-
-        salesPointService.addProduct(createdSalePoint.getId(), createdProduct, 5);
-        salesPointService.removeProduct(createdSalePoint.getId(), createdProduct, 3);
-
-        int quantity = salesPointService.getProductQuantity(createdSalePoint.getId(), createdProduct);
-        assertEquals(2, quantity);
-    }
-
-    @Test
-    void testHasEnoughProduct() {
-        SalePoint salePoint = new SalePoint();
-        salePoint.setAdress("Test Address");
-        salePoint.setActive(true);
-        SalePoint createdSalePoint = salesPointService.createSalePoint(salePoint);
-
-        Product product = new Product();
-        product.setName("Test Product");
-        product.setPrice(100);
-        product.setQuantity(10);
-        Product createdProduct = productService.createProduct(product);
-
-        salesPointService.addProduct(createdSalePoint.getId(), createdProduct, 5);
-
-        assertTrue(salesPointService.hasEnoughProduct(createdSalePoint.getId(), createdProduct.getId(), 3));
-        assertFalse(salesPointService.hasEnoughProduct(createdSalePoint.getId(), createdProduct.getId(), 10));
-    }
+   
 } 

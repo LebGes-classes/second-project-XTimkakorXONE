@@ -86,7 +86,7 @@ public class Customer {
     }
 
     public void addOrder(Order order) {
-        orders.add(order);
+        this.orders.add(order);
         this.totalOrders = orders.size();
     }
 
@@ -96,5 +96,9 @@ public class Customer {
 
     public List<Transaction> getTransactions() {
         return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions != null ? transactions : new ArrayList<>();
     }
 }

@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.my_app.service.WarehouseServiceTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in com.my_app.service.WarehouseServiceTest
-testDeleteWarehouse  Time elapsed: 0.014 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.IllegalStateException to be thrown, but nothing was thrown.
-	at com.my_app.service.WarehouseServiceTest.testDeleteWarehouse(WarehouseServiceTest.java:73)
-
-testTransferStock  Time elapsed: 0.008 s  <<< ERROR!
-java.lang.IllegalStateException
-	at com.my_app.service.WarehouseServiceTest.testTransferStock(WarehouseServiceTest.java:151)
-
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in com.my_app.service.WarehouseServiceTest

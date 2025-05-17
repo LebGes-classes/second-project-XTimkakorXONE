@@ -65,11 +65,13 @@ public class CustomerServiceR implements CustomerService {
             throw new IllegalArgumentException("ID не null");
         }
         try {
-            Customer existingCustomer = storage.getCustomerById(id);
-            if (existingCustomer == null) {
+            Customer currentCustomer = storage.getCustomerById(id);
+            if (currentCustomer == null) {
                 throw new IllegalStateException("Клиент не найден");
             }
             customer.setId(id);
+            customer.setOrders(customer.getOrders());
+            customer.setTransactions(customer.getTransactions());
             storage.updateCustomer(customer);
             return customer;
         } catch (IOException e) {

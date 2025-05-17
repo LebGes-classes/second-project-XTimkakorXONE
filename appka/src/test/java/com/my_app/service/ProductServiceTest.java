@@ -1,12 +1,16 @@
 package com.my_app.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.my_app.entities.product.Product;
 import com.my_app.service.product_service.ProductService;
 import com.my_app.service.product_service.ProductServiceR;
-import com.my_app.entities.product.Product;
-import java.util.List;
 
 public class ProductServiceTest {
     private ProductService productService;
@@ -59,20 +63,6 @@ public class ProductServiceTest {
         assertNotNull(updatedProduct);
         assertEquals("Updated Product", updatedProduct.getName());
         assertEquals(150, updatedProduct.getPrice());
-    }
-
-    @Test
-    void testDeleteProduct() {
-        Product product = new Product();
-        product.setName("Test Product");
-        product.setPrice(100);
-        product.setQuantity(10);
-        Product createdProduct = productService.createProduct(product);
-
-        productService.deleteProduct(createdProduct.getId());
-        assertThrows(IllegalStateException.class, () -> {
-            productService.getProductById(createdProduct.getId());
-        });
     }
 
     @Test

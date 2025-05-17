@@ -255,11 +255,45 @@ public class App {
             }
         }
     }
+    
 
     private static void createOrder() {
         System.out.println("\n=== Создание заказа ===");
         Integer customerId = getIntInput("Введите ID клиента: ");
         List<Product> products = new ArrayList<>();
+        
+        while (true) {
+            System.out.println("\n1. Добавить товар");
+            System.out.println("2. Завершить создание заказа");
+            int choice = getIntInput("Выберите действие: ");
+            
+            if (choice == 2) break;
+            
+            if (choice == 1) {
+                Integer productId = getIntInput("Введите ID товара: ");
+                int quantity = getIntInput("Введите количество: ");
+                
+                try {
+                    Product product = productService.getProductById(productId);
+                    if (product == null) {
+                        System.out.println("Товар не найден");
+                        continue;
+                    }
+                    product.setQuantity(quantity);
+                    products.add(product);
+                    System.out.println("Товар добавлен в заказ");
+                } catch (Exception e) {
+                    System.out.println("Ошибка при добавлении товара: " + e.getMessage());
+                }
+            } else {
+                System.out.println("Неверный выбор");
+            }
+        }
+        
+        if (products.isEmpty()) {
+            System.out.println("Заказ не может быть пустым");
+            return;
+        }
         
         Order order = new Order(customerId, StatusOrder.IN_WAREHOUSE, products);
         try {

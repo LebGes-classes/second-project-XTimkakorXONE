@@ -1,22 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.my_app.service.CustomerServiceTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.045 s <<< FAILURE! - in com.my_app.service.CustomerServiceTest
-testGetCustomerTransactions  Time elapsed: 0.01 s  <<< ERROR!
-java.lang.RuntimeException: 
-Ошибка при создании транзакции: Ошибка при чтении из файла: Unexpected end-of-input within/between Object entries
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 96] (through reference chain: java.util.ArrayList[0])
-	at com.my_app.service.CustomerServiceTest.testGetCustomerTransactions(CustomerServiceTest.java:101)
-
-testWithdrawBalance  Time elapsed: 0.003 s  <<< ERROR!
-java.lang.RuntimeException: 
-Ошибка при создании транзакции: Ошибка при чтении из файла: Unexpected end-of-input within/between Object entries
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 96] (through reference chain: java.util.ArrayList[0])
-	at com.my_app.service.CustomerServiceTest.testWithdrawBalance(CustomerServiceTest.java:90)
-
-testReplenishBalance  Time elapsed: 0.003 s  <<< ERROR!
-java.lang.RuntimeException: 
-Ошибка при создании транзакции: Ошибка при чтении из файла: Unexpected end-of-input within/between Object entries
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 96] (through reference chain: java.util.ArrayList[0])
-	at com.my_app.service.CustomerServiceTest.testReplenishBalance(CustomerServiceTest.java:79)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s - in com.my_app.service.CustomerServiceTest

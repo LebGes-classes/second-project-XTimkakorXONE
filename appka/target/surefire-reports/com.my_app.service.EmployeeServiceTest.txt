@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.my_app.service.EmployeeServiceTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in com.my_app.service.EmployeeServiceTest
-testDeleteEmployee  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.IllegalStateException to be thrown, but nothing was thrown.
-	at com.my_app.service.EmployeeServiceTest.testDeleteEmployee(EmployeeServiceTest.java:73)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in com.my_app.service.EmployeeServiceTest

@@ -1,5 +1,9 @@
 package com.my_app.entities.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
     private Integer id;
     private String name;
@@ -12,7 +16,7 @@ public class Product {
     public Product() {
     }
 
-    public Product( String name, int price, int quantity, String description, String imageURL, String category) {
+    public Product(String name, int price, int quantity, String description, String imageURL, String category) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -21,8 +25,7 @@ public class Product {
         this.category = category;
     }
 
-    
-
+    @JsonProperty("id")
     public Integer getId() {
         return id;
     }
@@ -31,6 +34,16 @@ public class Product {
         this.id = id;
     }
 
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonProperty("price")
     public int getPrice() {
         return price;
     }
@@ -39,6 +52,7 @@ public class Product {
         this.price = price;
     }
 
+    @JsonProperty("quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -47,6 +61,7 @@ public class Product {
         this.quantity = quantity;
     }
 
+    @JsonProperty("description")
     public String getDescription() {
         return description;
     }
@@ -55,6 +70,7 @@ public class Product {
         this.description = description;
     }
 
+    @JsonProperty("imageURL")
     public String getImageURL() {
         return imageURL;
     }
@@ -63,6 +79,7 @@ public class Product {
         this.imageURL = imageURL;
     }
 
+    @JsonProperty("category")
     public String getCategory() {
         return category;
     }
@@ -70,7 +87,7 @@ public class Product {
     public void setCategory(String category) {
         this.category = category;
     }
-   
+
     public int calculateTotalPrice() {
         return price * quantity;
     }
@@ -92,13 +109,4 @@ public class Product {
     public boolean hasEnoughtProduct(int count) {
         return count <= quantity;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
 }

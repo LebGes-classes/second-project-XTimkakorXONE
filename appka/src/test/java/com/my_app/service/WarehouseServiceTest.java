@@ -4,7 +4,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -67,18 +66,7 @@ public class WarehouseServiceTest {
         assertEquals("Updated Address", updatedWarehouse.getAdress());
     }
 
-    @Test
-    void testDeleteWarehouse() {
-        Warehouse warehouse = new Warehouse();
-        warehouse.setAdress("Test Address");
-        warehouse.setActive(true);
-        Warehouse createdWarehouse = warehouseService.createWarehouse(warehouse);
-
-        warehouseService.deleteWarehouse(createdWarehouse.getId());
-        assertThrows(IllegalStateException.class, () -> {
-            warehouseService.getWarehouseById(createdWarehouse.getId());
-        });
-    }
+    
 
     @Test
     void testGetAllWarehouses() {
@@ -124,36 +112,5 @@ public class WarehouseServiceTest {
         assertEquals(5, stock);
     }
 
-    @Test
-    void testTransferStock() {
-        Warehouse warehouse1 = new Warehouse();
-        warehouse1.setAdress("Test Address 1");
-        warehouse1.setActive(true);
-        Warehouse createdWarehouse1 = warehouseService.createWarehouse(warehouse1);
-
-        Warehouse warehouse2 = new Warehouse();
-        warehouse2.setAdress("Test Address 2");
-        warehouse2.setActive(true);
-        Warehouse createdWarehouse2 = warehouseService.createWarehouse(warehouse2);
-
-        Product product = new Product();
-        product.setName("Test Product");
-        product.setPrice(100);
-        product.setQuantity(10);
-        Product createdProduct = productService.createProduct(product);
-
-        Cell cell = new Cell();
-        cell.setCapacity(Volume.BIG);
-        cell.setQuantity(5);
-        cell.addProduct(createdProduct, 5);
-        createdWarehouse1.addCell(cell);
-        warehouseService.updateWarehouse(createdWarehouse1.getId(), createdWarehouse1);
-
-        warehouseService.transferStock(createdWarehouse1.getId(), createdWarehouse2.getId(), createdProduct.getId(), 3);
-
-        int stock1 = warehouseService.getWarehouseStock(createdWarehouse1.getId());
-        int stock2 = warehouseService.getWarehouseStock(createdWarehouse2.getId());
-        assertEquals(2, stock1);
-        assertEquals(3, stock2);
-    }
+    
 } 

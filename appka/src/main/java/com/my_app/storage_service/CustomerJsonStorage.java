@@ -18,12 +18,17 @@ public class CustomerJsonStorage extends JsonStorageService<Customer> {
             throw new IllegalArgumentException("Клиент не может быть null");
         }
         List<Customer> customers = readFile();
-        if (getCustomerById(customer.getId()) != null) {
-            customers.set(customers.indexOf(customer), customer);
-            writeFile(customers);
-            return;
+        boolean found = false;
+        for (int i = 0; i < customers.size(); i++) {
+            if (Objects.equals(customers.get(i).getId(), customer.getId())) {
+                customers.set(i, customer);
+                found = true;
+                break;
+            }
         }
-        customers.add(customer);
+        if (!found) {
+            customers.add(customer);
+        }
         writeFile(customers);
     }
 
@@ -63,7 +68,7 @@ public class CustomerJsonStorage extends JsonStorageService<Customer> {
                 return customer;
             }
         }
-        return null;
+        throw new IllegalStateException("Клиент с ID " + customer.getId() + " не найден");
     }
 
     public Integer getNextCustomerId() throws IOException {

@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.my_app.service.SalesPointServiceTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.213 s <<< FAILURE! - in com.my_app.service.SalesPointServiceTest
-testRemoveProduct  Time elapsed: 0.013 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <2> but was: <1>
-	at com.my_app.service.SalesPointServiceTest.testRemoveProduct(SalesPointServiceTest.java:189)
-
-testHasEnoughProduct  Time elapsed: 0.007 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
-	at com.my_app.service.SalesPointServiceTest.testHasEnoughProduct(SalesPointServiceTest.java:212)
-
-testAddEmployee  Time elapsed: 0.006 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.my_app.service.SalesPointServiceTest.testAddEmployee(SalesPointServiceTest.java:118)
-
-testAddProduct  Time elapsed: 0.005 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <5> but was: <1>
-	at com.my_app.service.SalesPointServiceTest.testAddProduct(SalesPointServiceTest.java:165)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in com.my_app.service.SalesPointServiceTest

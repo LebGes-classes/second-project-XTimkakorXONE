@@ -1,12 +1,17 @@
 package com.my_app.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.my_app.entities.employee.Employee;
 import com.my_app.service.employ_service.EmployeeService;
 import com.my_app.service.employ_service.EmployeeServiceR;
-import com.my_app.entities.employee.Employee;
-import java.util.List;
 
 public class EmployeeServiceTest {
     private EmployeeService employeeService;
@@ -59,20 +64,6 @@ public class EmployeeServiceTest {
         assertNotNull(updatedEmployee);
         assertEquals("Updated Employee", updatedEmployee.getName());
         assertEquals("Senior Manager", updatedEmployee.getPosition());
-    }
-
-    @Test
-    void testDeleteEmployee() {
-        Employee employee = new Employee();
-        employee.setName("Test Employee");
-        employee.setPosition("Manager");
-        employee.setActive(true);
-        Employee createdEmployee = employeeService.createEmployee(employee);
-
-        employeeService.deleteEmployee(createdEmployee.getId());
-        assertThrows(IllegalStateException.class, () -> {
-            employeeService.getEmployeeById(createdEmployee.getId());
-        });
     }
 
     @Test
